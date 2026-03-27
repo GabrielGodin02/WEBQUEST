@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Figuras Geométricas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<div class="app">
+
+<header class="header">
+  <button class="menu-toggle" onclick="toggleDrawer()">☰</button>
+  <h1>Figuras Geométricas</h1>
+</header>
+
+<aside id="drawer" class="drawer">
+  <nav>
+    <a onclick="navigate('inicio')">🏠 Inicio</a>
+    <a onclick="navigate('figuras')">📐 Figuras</a>
+
+    <!-- Menú desplegable de Tareas -->
+    <div class="submenu">
+      <button class="submenu-toggle">📚 Tareas ▾</button>
+      <div class="submenu-items">
+        <a onclick="navigate('tarea1')">🧠 Tarea 1</a>
+        <a onclick="navigate('tarea2')">🔍 Tarea 2</a>
+        <a onclick="navigate('tarea3')">🎨 Tarea 3</a>
+      </div>
+    </div>
+
+    <a onclick="navigate('juego')">🎮 Juego</a>
+    <a onclick="navigate('evaluacion')">📝 Evaluación</a>
+    <a onclick="navigate('final')">⭐ Conclusión</a>
+  </nav>
+</aside>
+
+<div id="overlay" class="overlay" onclick="toggleDrawer()"></div>
+
+<main class="content">
+
+<!-- INTRODUCCIÓN -->
+<section id="inicio" class="section active">
+  <h2>Introducción 👋</h2>
+  <p>
+    ¡Bienvenidos exploradores! 🔍</p>
+<p>Las figuras geométricas están en todas partes: en los juguetes, en las señales, en las ventanas y hasta en los dibujos que hacemos.
+En esta aventura vamos a conocer, observar y jugar con las figuras geométricas para aprender sus nombres y reconocerlas en nuestro entorno. 
+  </p>
+
+  <div class="objetivo">
+    <h3>🎯 Objetivo</h3>
+    <p>Hoy vamos a aprender a:</p>
+    <ul>
+      <li>✔ Reconocer figuras geométricas</li>
+      <li>✔ Decir sus nombres</li>
+      <li>✔ Encontrarlas en nuestro entorno</li>
+    </ul>
+  </div>
+
+  <div class="imagen-texto">
+    <img src="https://copilot.microsoft.com/th/id/BCO.9f92ca4b-bb7f-489d-b260-97e2bea8f7f6.png?utm_source=copilot.com" alt="Figura geométrica">
+    <p>
+      C. Alsina, C. Burgués y J.M. Fortuny (1987), p.14, mencionan:  
+      "En nuestro entorno ambiental estamos rodeados de objetos, formas, diseños y transformaciones (...)  
+      Desde la más temprana infancia se experimenta directamente con las formas de los objetos, ya sean juguetes  
+      o utensilios cotidianos y familiares. (...) Así, de esta manera se va adquiriendo conocimiento directo de  
+      nuestro entorno espacial. Este conocimiento del espacio ambiental que se apropia directamente, primero sin  
+      razonamiento lógico, es lo que constituye la intuición geométrica. La primera invitación a la Geometría se  
+      realiza, así, por medio de la intuición."
+    </p>
+  </div>
+</section>
+
+<!-- FIGURAS -->
+<section id="figuras" class="section">
+  <h2>Figuras Geométricas 📐</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="circle-shape"></div>
+      <strong>Círculo</strong>
+      <p>No tiene lados</p>
+    </div>
+    <div class="card">
+      <div class="triangle-shape"></div>
+      <strong>Triángulo</strong>
+      <p>Tiene 3 lados</p>
+    </div>
+    <div class="card">
+      <div class="square-shape"></div>
+      <strong>Cuadrado</strong>
+      <p>4 lados iguales</p>
+    </div>
+    <div class="card">
+      <div class="rectangle-shape"></div>
+      <strong>Rectángulo</strong>
+      <p>2 lados largos y 2 cortos</p>
+    </div>
+  </div>
+</section>
+
+<!-- TAREA 1 -->
+<section id="tarea1" class="section">
+  <h2>Tarea 1: Reconocer 🧠</h2>
+  <p>Escribe el nombre correcto de cada figura geométrica.</p>
+  <div class="grid tarea1-grid">
+    <div class="card tarea-card">
+      <div class="circle-shape"></div>
+      <input type="text" id="resp1" placeholder="Escribe aquí...">
+    </div>
+    <div class="card tarea-card">
+      <div class="triangle-shape"></div>
+      <input type="text" id="resp2" placeholder="Escribe aquí...">
+    </div>
+    <div class="card tarea-card">
+      <div class="square-shape"></div>
+      <input type="text" id="resp3" placeholder="Escribe aquí...">
+    </div>
+    <div class="card tarea-card">
+      <div class="rectangle-shape"></div>
+      <input type="text" id="resp4" placeholder="Escribe aquí...">
+    </div>
+  </div>
+  <button class="btn-validar" onclick="validarRespuestas()">Validar</button>
+</section>
+
+<!-- TAREA 2 -->
+<section id="tarea2" class="section">
+  <h2>Tarea 2: Buscar 🔍</h2>
+  <p>Busca en tu casa objetos que tengan estas formas.</p>
+  <ul>
+    <li>🕒 Reloj → Círculo</li>
+    <li>🚪 Puerta → Rectángulo</li>
+    <li>🪟 Ventana → Cuadrado</li>
+    <li>🚧 Señales → Triángulo</li>
+  </ul>
+  <p><strong>Producto:</strong> dibujar o contar los objetos encontrados.</p>
+</section>
+
+<!-- TAREA 3 -->
+<section id="tarea3" class="section">
+  <h2>Tarea 3: Crear 🎨</h2>
+  <p>Usa figuras geométricas para crear un dibujo.</p>
+  <ul>
+    <li>🏠 Una casa</li>
+    <li>🤖 Un robot</li>
+    <li>🌳 Un paisaje</li>
+  </ul>
+  <p><strong>Producto:</strong> dibujo creativo con figuras geométricas.</p>
+</section>
+
+<!-- JUEGO -->
+<section id="juego" class="section">
+  <h2>Juego 🎮</h2>
+  <div class="grid">
+    <div class="circle-shape"></div>
+    <div class="triangle-shape"></div>
+    <div class="square-shape"></div> 
+    <div class="rectangle-shape"></div>
+  </div>
+
+  <div id="nivel1" class="game">
+    <p>¿Cuál de las figuras geométricas es redonda?</p>
+    <button onclick="nextLevel(1,true)">Círculo</button>
+    <button onclick="nextLevel(1,false)">Cuadrado</button>
+    <button onclick="nextLevel(1,false)">Triángulo</button>
+    <button onclick="nextLevel(1,false)">Rectángulo</button>
+  </div>
+
+  <div id="nivel2" class="game hidden">
+    <p>¿Cuál de las figuras geométricas tiene 3 lados?</p>
+    <button onclick="nextLevel(2,true)">Triángulo</button>
+    <button onclick="nextLevel(2,false)">Rectángulo</button>
+    <button onclick="nextLevel(2,false)">Círculo</button>
+    <button onclick="nextLevel(2,false)">Cuadrado</button>
+  </div>
+
+  <div id="nivel3" class="game hidden">
+    <p>¿Cuál de las figuras geométricas tiene 4 lados iguales?</p>
+    <button onclick="nextLevel(3,true)">Cuadrado</button>
+    <button onclick="nextLevel(3,false)">Rectángulo</button>
+    <button onclick="nextLevel(3,false)">Triángulo</button>
+    <button onclick="nextLevel(3,false)">Círculo</button>
+  </div>
+
+  <div id="nivel4" class="game hidden">
+    <p>🎉 ¡Excelente! Completaste el juego</p>
+  </div>
+</section>
+
+<!-- EVALUACIÓN -->
+<section id="evaluacion" class="section">
+  <h2>Evaluación 📝</h2>
+  <form id="evalForm" class="eval-form">
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" placeholder="Escribe tu nombre..." required>
+    </div>
+
+    <div class="form-group">
+      <p>¿Aprendiste a reconocer las figuras geométricas?</p>
+      <label class="radio-option"><input type="radio" name="pregunta1" value="Sí" required> Sí</label>
+      <label class="radio-option"><input type="radio" name="pregunta1" value="No"> No</label>
+    </div>
+
+    <div class="form-group">
+      <p>¿Puedes identificar objetos del entorno con esas figuras?</p>
+      <label class="radio-option"><input type="radio" name="pregunta2" value="Sí" required> Sí</label>
+      <label class="radio-option"><input type="radio" name="pregunta2" value="No"> No</label>
+    </div>
+
+    <button type="submit" class="btn-enviar">Enviar respuestas</button>
+  </form>
+</section>
+
+<!-- CONCLUSIÓN -->
+<section id="final" class="section">
+  <h2>Conclusión ⭐</h2>
+  <p>
+    Aprendiste que las figuras geométricas están en todas partes y nos ayudan
+    a conocer mejor el mundo.
+  </p>
+</section>
+
+</main>
+
+<footer class="footer">
+  Figuras Geométricas · Grado 1
+</footer>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
