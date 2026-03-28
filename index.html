@@ -29,7 +29,7 @@
         <a onclick="navigate('tarea3')">🎨 Tarea 3</a>
       </div>
     </div>
-
+    <a onclick="navigate('procesos')">⚙️ Procesos</a>
     <a onclick="navigate('juego')">🎮 Juego</a>
     <a onclick="navigate('evaluacion')">📝 Evaluación</a>
     <a onclick="navigate('final')">⭐ Conclusión</a>
@@ -150,6 +150,54 @@ En esta aventura vamos a conocer, observar y jugar con las figuras geométricas 
   <p><strong>Producto:</strong> dibujo creativo con figuras geométricas.</p>
 </section>
 
+<!-- PROCESOS -->
+<section id="procesos" class="section">
+  <h2>Procesos 📝</h2>
+  <p>Haz clic en cada proceso para ver la explicación:</p>
+
+  <div class="proceso-card">
+    <button class="proceso-toggle">Proceso de la Tarea 1</button>
+    <div class="proceso-contenido">
+      <p>Observa las figuras geométricas y escribe sus nombres en los espacios. 
+         Revisa la ortografía y corrige si es necesario. 
+         Vuelve a intentarlo hasta que todas las respuestas estén correctas.</p>
+         <h3>Recursos</h3>
+      <!-- Enlace de video -->
+      <a href="https://youtu.be/CC_SXuBXu_U?feature=shared" target="_blank" class="video-link">
+        🎥 Ver video explicativo
+      </a>
+    </div>
+  </div>
+
+  <div class="proceso-card">
+    <button class="proceso-toggle">Proceso de la Tarea 2</button>
+    <div class="proceso-contenido">
+      <p>Busca en tu casa objetos que tengan las formas indicadas. 
+         Ejemplo: reloj (círculo), puerta (rectángulo), ventana (cuadrado), señal (triángulo). 
+         Luego dibuja o cuenta los objetos encontrados.</p>
+         <h3>Recursos</h3>
+      <!-- Enlace de video -->
+      <a href="https://youtu.be/XQXDUnN2tsc?feature=shared" target="_blank" class="video-link">
+        🎥 Ver video explicativo
+      </a>
+    </div>
+  </div>
+
+  <div class="proceso-card">
+    <button class="proceso-toggle">Proceso de la Tarea 3</button>
+    <div class="proceso-contenido">
+      <p>Usa figuras geométricas para crear un dibujo. 
+         Puedes formar una casa, un robot o un paisaje combinando círculos, cuadrados, rectángulos y triángulos. 
+         Sé creativo y haz tu propio diseño.</p>
+         <h3>Recursos</h3>
+      <!-- Enlace de video -->
+      <a href="https://youtu.be/CE4UR_3F1Qw?feature=shared" target="_blank" class="video-link">
+        🎥 Ver video explicativo
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- JUEGO -->
 <section id="juego" class="section">
   <h2>Juego 🎮</h2>
@@ -191,30 +239,57 @@ En esta aventura vamos a conocer, observar y jugar con las figuras geométricas 
 
 <!-- EVALUACIÓN -->
 <section id="evaluacion" class="section">
-  <h2>Evaluación 📝</h2>
+  <h2>Evaluación Final ✅</h2>
   <form id="evalForm" class="eval-form">
-    <div class="form-group">
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" placeholder="Escribe tu nombre..." required>
+
+    <!-- Nombre -->
+    <div class="eval-card">
+      <label for="nombre">👤 Nombre del estudiante:</label>
+      <input type="text" id="nombre" name="nombre" required>
     </div>
 
-    <div class="form-group">
-      <p>¿Aprendiste a reconocer las figuras geométricas?</p>
-      <label class="radio-option"><input type="radio" name="pregunta1" value="Sí" required> Sí</label>
-      <label class="radio-option"><input type="radio" name="pregunta1" value="No"> No</label>
+    <!-- Tarea 1 -->
+    <div class="eval-card">
+      <h3>📘 Tarea 1: Figuras geométricas</h3>
+      <p>¿Cuál es la forma del reloj?</p>
+      <input type="text" id="evalReloj" name="evalReloj" required>
+
+      <p>¿Cuál es la forma de la puerta?</p>
+      <input type="text" id="evalPuerta" name="evalPuerta" required>
     </div>
 
-    <div class="form-group">
-      <p>¿Puedes identificar objetos del entorno con esas figuras?</p>
-      <label class="radio-option"><input type="radio" name="pregunta2" value="Sí" required> Sí</label>
-      <label class="radio-option"><input type="radio" name="pregunta2" value="No"> No</label>
+    <!-- Tarea 2 -->
+    <div class="eval-card">
+      <h3>🏠 Tarea 2: Objetos en casa</h3>
+      <p>De los objetos que buscaste, ¿cuál representa mejor un círculo y por qué?</p>
+      <textarea id="evalCirculoExp" name="evalCirculoExp" required></textarea>
+
+      <p>¿Qué objeto cotidiano representa un triángulo y cómo lo identificaste?</p>
+      <textarea id="evalTrianguloExp" name="evalTrianguloExp" required></textarea>
     </div>
 
-    <button type="submit" class="btn-enviar">Enviar respuestas</button>
+    <!-- Tarea 3 -->
+    <div class="eval-card">
+      <h3>🎨 Tarea 3: Dibujo creativo</h3>
+      <p>Si tu dibujo tiene una casa, ¿qué figuras geométricas usaste para construirla?</p>
+      <textarea id="evalCasa" name="evalCasa" required></textarea>
 
-    <!-- Mensaje de confirmación -->
-    <div id="mensajeConfirmacion" class="mensaje-confirmacion"></div>
+      <p>Explica cómo combinaste las figuras para crear tu robot o paisaje.</p>
+      <textarea id="evalCreativo" name="evalCreativo" required></textarea>
+    </div>
+
+    <!-- Juego -->
+    <div class="eval-card">
+      <h3>🎮 Juego</h3>
+      <p>En el juego, ¿qué aprendiste al pasar de un nivel al siguiente?</p>
+      <textarea id="evalJuegoExp" name="evalJuegoExp" required></textarea>
+    </div>
+
+    <!-- Botón -->
+    <button type="submit" class="btn-enviar">Enviar Evaluación</button>
   </form>
+
+  <div id="mensajeConfirmacion" class="mensaje-confirmacion"></div>
 </section>
 
 <!-- CONCLUSIÓN -->

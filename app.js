@@ -21,6 +21,14 @@ document.addEventListener("DOMContentLoaded", () => {
       submenu.classList.toggle("open");
     });
   });
+
+  // --- Procesos: acordeón interactivo ---
+  document.querySelectorAll(".proceso-toggle").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const card = btn.parentElement;
+      card.classList.toggle("open");
+    });
+  });
 });
 
 // --- Juego ---
@@ -66,24 +74,36 @@ document.getElementById("evalForm").addEventListener("submit", function(e) {
 
   const data = {
     nombre: document.getElementById("nombre").value,
-    pregunta1: document.querySelector('input[name="pregunta1"]:checked').value,
-    pregunta2: document.querySelector('input[name="pregunta2"]:checked').value
+
+    // Tarea 1
+    evalReloj: document.getElementById("evalReloj").value,
+    evalPuerta: document.getElementById("evalPuerta").value,
+
+    // Tarea 2
+    evalCirculoExp: document.getElementById("evalCirculoExp").value,
+    evalTrianguloExp: document.getElementById("evalTrianguloExp").value,
+
+    // Tarea 3
+    evalCasa: document.getElementById("evalCasa").value,
+    evalCreativo: document.getElementById("evalCreativo").value,
+
+    // Juego
+    evalJuegoExp: document.getElementById("evalJuegoExp").value
   };
 
   const mensaje = document.getElementById("mensajeConfirmacion");
 
-  fetch("https://script.google.com/macros/s/AKfycbzj9vez3F4V2fb11PLkksq4vZLTh-2TozZ8Q-K5BErHmVuw_3WrgNSvP2427SqIQX7LIQ/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbwJzMYfws9sjayW4VhtScUn63IMGG_YQfumvDFuLR193164wVM350ouaHdmiagPkTGppQ/exec", {
     method: "POST",
     body: JSON.stringify(data)
   })
   .then(res => res.text())
   .then(text => {
-    mensaje.textContent = "✅ ¡Respuestas enviadas con éxito!";
+    mensaje.textContent = "✅ ¡Evaluación enviada con éxito!";
     mensaje.className = "mensaje-confirmacion mensaje-exito";
     mensaje.style.display = "block";
     document.getElementById("evalForm").reset();
 
-    // Ocultar el mensaje después de 5 segundos
     setTimeout(() => {
       mensaje.style.display = "none";
     }, 5000);
@@ -93,7 +113,6 @@ document.getElementById("evalForm").addEventListener("submit", function(e) {
     mensaje.className = "mensaje-confirmacion mensaje-error";
     mensaje.style.display = "block";
 
-    // Ocultar el mensaje después de 5 segundos
     setTimeout(() => {
       mensaje.style.display = "none";
     }, 5000);
