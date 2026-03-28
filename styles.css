@@ -322,3 +322,49 @@ body {
   color: #721c24;
   border: 2px solid #f5c6cb;
 }
+
+.figura-card {
+  text-align: center;
+  margin: 25px auto;
+  max-width: 300px;
+}
+
+.figura-img {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  display: block;
+  margin: 0 auto 10px auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.figura-texto {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.tarea-lista {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  display: flex;            /* Lista en horizontal */
+  flex-wrap: wrap;          /* Se acomoda en varias filas si no cabe */
+  justify-content: center;  /* Centra los elementos */
+  gap: 40px;                /* Espacio entre cada figura */
+}
+
+.tarea-lista li {
+  display: flex;
+  flex-direction: column;   /* Emoji arriba, texto debajo */
+  align-items: center;
+  font-size: 24px;          /* Texto grande */
+  font-weight: bold;
+}
+
+.tarea-lista li .emoji {
+  font-size: 80px;          /* Emoji grande fijo */
+  line-height: 1;    /* Evita que se reduzca */
+  margin-bottom: 22px;      / Espacio debajo del emoji /
+}
