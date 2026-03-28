@@ -70,16 +70,32 @@ document.getElementById("evalForm").addEventListener("submit", function(e) {
     pregunta2: document.querySelector('input[name="pregunta2"]:checked').value
   };
 
-  fetch("https://script.google.com/macros/s/AKfycbzj9vez3F4V2fb11PLkksq4vZLTh-2TozZ8Q-K5BErHmVuw_3WrgNSvP2427SqIQX7LIQ/exec", {   // 👈 Aquí pegas la URL de tu Apps Script
+  const mensaje = document.getElementById("mensajeConfirmacion");
+
+  fetch("https://script.google.com/macros/s/AKfycbzj9vez3F4V2fb11PLkksq4vZLTh-2TozZ8Q-K5BErHmVuw_3WrgNSvP2427SqIQX7LIQ/exec", {
     method: "POST",
     body: JSON.stringify(data)
   })
   .then(res => res.text())
   .then(text => {
-    alert("✅ Respuesta enviada correctamente");
+    mensaje.textContent = "✅ ¡Respuestas enviadas con éxito!";
+    mensaje.className = "mensaje-confirmacion mensaje-exito";
+    mensaje.style.display = "block";
     document.getElementById("evalForm").reset();
+
+    // Ocultar el mensaje después de 5 segundos
+    setTimeout(() => {
+      mensaje.style.display = "none";
+    }, 5000);
   })
   .catch(err => {
-    alert("❌ Error al enviar: " + err);
+    mensaje.textContent = "❌ Error al enviar: " + err;
+    mensaje.className = "mensaje-confirmacion mensaje-error";
+    mensaje.style.display = "block";
+
+    // Ocultar el mensaje después de 5 segundos
+    setTimeout(() => {
+      mensaje.style.display = "none";
+    }, 5000);
   });
 });
